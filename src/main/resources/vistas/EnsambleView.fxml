@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="14.0" prefWidth="560.0" prefHeight="480.0"
+      style="-fx-background-color: #1e1e2e;"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.vista.EnsambleController">
+    <padding><Insets top="25" right="35" bottom="25" left="35"/></padding>
+
+    <Label text="FASE DE ENSAMBLE DEL MECHA" textFill="#89b4fa">
+        <font><Font name="System Bold" size="22.0"/></font>
+    </Label>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Nombre del Mecha:" textFill="#cdd6f4"/>
+        <TextField fx:id="txtNombre" text="Mecha-01" prefWidth="180"/>
+        <Button text="Cargar robots.bin" onAction="#onCargarRobotBin"
+                style="-fx-background-color: #cba6f7; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <GridPane hgap="12" vgap="10" alignment="CENTER">
+        <Label text="Ataque (ATK):" textFill="#cdd6f4" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtAtk" text="70" prefWidth="80" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Defensa (DEF):" textFill="#cdd6f4" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtDef" text="50" prefWidth="80" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Velocidad (SPD):" textFill="#cdd6f4" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtSpd" text="50" prefWidth="80" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Energía (NRG):" textFill="#cdd6f4" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNrg" text="30" prefWidth="80" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <Label fx:id="lblPuntos" text="Puntos asignados: 200 / 200" textFill="#a6e3a1">
+        <font><Font name="System Bold" size="14.0"/></font>
+    </Label>
+
+    <VBox spacing="6" alignment="CENTER">
+        <Label text="Efectos de Estado (Pasivos):" textFill="#cdd6f4"/>
+        <HBox spacing="15" alignment="CENTER">
+            <CheckBox fx:id="chkQuemadura" text="Quemadura (-3 HP rival)" textFill="#f38ba8"/>
+            <CheckBox fx:id="chkRegeneracion" text="Regeneración (+3 HP)" textFill="#a6e3a1"/>
+            <CheckBox fx:id="chkNucleo" text="Núcleo Activo (+2 NRG)" textFill="#f9e2af"/>
+        </HBox>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Seleccionar estrategia.txt" onAction="#onSeleccionarEstrategia"
+                style="-fx-background-color: #fab387; -fx-font-weight: bold;"/>
+        <Label fx:id="lblEstrategia" text="Modo Manual (sin estrategia.txt)" textFill="#cdd6f4"/>
+    </HBox>
+
+    <Button fx:id="btnConfirmar" text="Confirmar Ensamble y Esperar Rival" onAction="#onConfirmarEnsamble"
+            prefWidth="280" prefHeight="38"
+            style="-fx-background-color: #89b4fa; -fx-font-weight: bold; -fx-font-size: 14;"/>
+
+    <Label fx:id="lblEstadoEnsamble" text="" textFill="#f9e2af"/>
+</VBox>

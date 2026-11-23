@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefWidth="880.0" prefHeight="640.0" style="-fx-background-color: #1e1e2e;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.vista.CombateController">
+    <padding><Insets top="15" right="20" bottom="15" left="20"/></padding>
+
+    <top>
+        <VBox alignment="CENTER" spacing="4">
+            <Label text="ARENA DE COMBATE - MECHA DUEL" textFill="#89b4fa">
+                <font><Font name="System Bold" size="22.0"/></font>
+            </Label>
+            <Label fx:id="lblTurno" text="Iniciando combate..." textFill="#f9e2af">
+                <font><Font name="System Bold" size="15.0"/></font>
+            </Label>
+        </VBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" prefWidth="200" style="-fx-background-color: #313244; -fx-padding: 15; -fx-background-radius: 8;">
+            <Label fx:id="lblNombrePropio" text="MI ROBOT" textFill="#a6e3a1">
+                <font><Font name="System Bold" size="16.0"/></font>
+            </Label>
+            <Label fx:id="lblHpPropio" text="HP: 100 / 100" textFill="#cdd6f4"/>
+            <ProgressBar fx:id="barHpPropio" progress="1.0" prefWidth="170"/>
+            <Label fx:id="lblNrgPropio" text="NRG: 30" textFill="#cdd6f4"/>
+            <Label fx:id="lblStatsPropio" text="ATK: 0 | DEF: 0 | SPD: 0" textFill="#bac2de"/>
+            <Label fx:id="lblEfectosPropio" text="Efectos: Ninguno" textFill="#f9e2af" wrapText="true"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 0 15 0 15;">
+            <!-- ESCENARIO ANIMADO DE LOS MECHAS -->
+            <Pane fx:id="arenaPane" prefHeight="220.0" minHeight="220.0"
+                  style="-fx-background-color: #11111b; -fx-background-radius: 10; -fx-border-color: #45475a; -fx-border-radius: 10; -fx-border-width: 1.5;"/>
+
+            <!-- LISTADO DE ATAQUES / HISTORIAL -->
+            <Label text="Registro de Batalla:" textFill="#cdd6f4">
+                <font><Font name="System Bold" size="13.0"/></font>
+            </Label>
+            <ListView fx:id="listaRegistro" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox spacing="10" prefWidth="200" style="-fx-background-color: #313244; -fx-padding: 15; -fx-background-radius: 8;">
+            <Label fx:id="lblNombreRival" text="RIVAL" textFill="#f38ba8">
+                <font><Font name="System Bold" size="16.0"/></font>
+            </Label>
+            <Label fx:id="lblHpRival" text="HP: 100 / 100" textFill="#cdd6f4"/>
+            <ProgressBar fx:id="barHpRival" progress="1.0" prefWidth="170"/>
+            <Label fx:id="lblNrgRival" text="NRG: 30" textFill="#cdd6f4"/>
+            <Label fx:id="lblStatsRival" text="ATK: 0 | DEF: 0 | SPD: 0" textFill="#bac2de"/>
+            <Label fx:id="lblEfectosRival" text="Efectos: Ninguno" textFill="#f9e2af" wrapText="true"/>
+        </VBox>
+    </right>
+
+    <bottom>
+        <VBox spacing="8" alignment="CENTER" style="-fx-padding: 12 0 0 0;">
+            <Label text="Acciones (Modo Manual):" textFill="#cdd6f4"/>
+            <HBox fx:id="panelBotones" spacing="12" alignment="CENTER">
+                <Button fx:id="btnAttack" text="ATTACK" onAction="#onAttack" style="-fx-background-color: #f38ba8; -fx-font-weight: bold;"/>
+                <Button fx:id="btnSpecial" text="SPECIAL" onAction="#onSpecial" style="-fx-background-color: #fab387; -fx-font-weight: bold;"/>
+                <Button fx:id="btnDodge" text="DODGE" onAction="#onDodge" style="-fx-background-color: #89b4fa; -fx-font-weight: bold;"/>
+                <Button fx:id="btnHeal" text="HEAL (+10 HP)" onAction="#onHeal" style="-fx-background-color: #a6e3a1; -fx-font-weight: bold;"/>
+                <Button fx:id="btnCharge" text="CHARGE (+10 NRG)" onAction="#onCharge" style="-fx-background-color: #f9e2af; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
